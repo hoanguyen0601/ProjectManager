@@ -1,0 +1,31 @@
+<form #frmSuaDA="ngForm" class="mt-3"  (ngSubmit)="suaDA(frmSuaDA.value)">
+    <h1 class="display-4 text-center" style="color: #e41595 ">
+     Sửa Dự Án</h1>
+    <p class="mb-3">ID<input type="text" class="form-control" name="id" [(ngModel)]="da.id">
+    </p>
+    <p class="mb-3">Tên Dự Án <input type="text" class="form-control" name="tenDuAn" [(ngModel)]="da.tenDuAn">
+    </p>
+
+
+
+    <p class="mb-3">Ngày Bắt Đầu <input type="date" class="form-control" name="ngayStart" [(ngModel)]="da.ngayStart">
+    </p>
+
+
+
+    <p class="mb-3">Chi Phí (VND) <input class="form-control" name="tien" [(ngModel)]="da.tien">
+    
+    </p>
+    <p class="mb-3">Leader <select class="form-control" name="leader" >
+        <option value="0">Chọn đội trưởng</option>
+        <option value="{{nv.ho}} {{nv.ten}}" *ngFor="let nv of nvList">{{nv.ho}} {{nv.ten}}</option>
+    </select>
+    
+</p>
+    <p class="mb-3">Thành viên <select multiple size="5" name="thanhvien" class="form-control">
+        <option value="{{nv.ho}} {{nv.ten}}" *ngFor="let nv of nvList">{{nv.ho}} {{nv.ten}}</option>
+    </select></p>
+    <p><button type="submit" class="btn btn-primary p-2" style="background-color: #e41595 ; border: none;">Sửa dự án</button></p>
+</form>
+
+

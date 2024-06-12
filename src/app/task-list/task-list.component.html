@@ -1,0 +1,30 @@
+<div class="container-fluid  mt-100">
+    <form class="d-flex mb-4 col-4" role="search">
+        <input class="form-control" name="searchName" [(ngModel)]="searchName" (keyup)="searchByName()" placeholder="Tìm dự án">
+        <button class="btn btn-outline-success mx-2" type="submit">Search</button>
+      </form>
+    <div *ngFor="let task of taskList" class="mb-3">
+        <div>
+            <b class="fs-6">{{task.tenTask}} </b>
+            <br>
+            <!-- <br> -->
+            {{task.moTa}}
+        </div>
+            <!-- <br> -->
+
+        <div class="mb-3 pb-3 border-bottom row">
+            <div class="col-6">
+                Priority: {{task.priority}}<br>
+                Status: {{task.status}}
+            </div>
+            <div class="col-6">
+                Nhân viên {{task.nhanvienID}}<br>
+                Dự án: {{task.duAnID}}
+            </div>
+            <div class="pt-3">
+                <a href="#" [routerLink]="['/suaTask', task.id]" ><i class='bx bx-edit' style="font-size: 22px; color: #e41595"></i></a> &nbsp;
+                <a href="#" (click)="xoaT(task.id)"><i class='bx bx-x-circle' style="font-size: 22px; color: #e41595"></i></a> 
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<form #frmNV="ngForm"  class="mt-3" (ngSubmit)="nvthem(frmNV.value)">
+    <h1 class="display-4 text-center" style="color: #e41595 ;">
+        <i class="fas fa-book-open text-primary"></i> Thêm Nhân Viên</h1>
+    <p class="mb-3">Họ Nhân Viên <input name="ho" ngModel  class="form-control"></p>
+    <p class="mb-3">Tên Nhân Viên <input name="ten" ngModel  class="form-control"></p>
+    <p class="mb-3">Ngày Sinh <input name="ngaysinh" ngModel  class="form-control" type="date"></p>
+    <p class="mb-3">Giới Tính 
+        <select name="phai" ngModel  class="form-control">
+        <option value="">Chọn Giới Tính</option>
+        <option value="Nam">Nam</option>
+        <option value="Nữ">Nữ</option>
+    </select></p>
+    <p class="mb-3">Khu Vực <input name="khuvuc" ngModel  class="form-control"></p>
+    <p><button type="submit" class="btn btn-primary p-2" style="background-color: #e41595 ; border: none;">Thêm Nhân Viên</button></p>
+</form>

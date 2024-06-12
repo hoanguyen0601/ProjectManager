@@ -1,0 +1,40 @@
+<h2> Login</h2>
+<div class="container p-4 ">
+    <form id="login" #f="ngForm" (ngSubmit)="login(f.value)" novalidate class="mx-auto col-5 p-5 border-1 border-danger border">
+        <div class="form-group">
+            <label for="email">Tên của bạn</label>
+            <input type="email" id="email" name="email" class="form-control" autocomplete="hihi@gmail.com"  ngModel required #email="ngModel">
+            <p></p>
+        </div>
+        <div class="form-group">
+            <label for="password">Mật khẩu</label>
+            <input type="password" id="password" name="password" class="form-control" autocomplete="123123" ngModel  #password="ngModel">
+            <p></p>
+        </div>
+        <button type="submit" class="btn btn-primary p-2">đăng nhập</button>
+    </form>
+</div>
+<table>
+  <h2>Danh sách tài khoản</h2>
+  <tr>
+    <th>Email</th>
+    <th>Password</th>
+  </tr>
+  <tr *ngFor="let nv of users">
+    <td> {{nv.email}}</td>
+    <td> {{nv.password}}</td>
+  </tr>
+</table>
+<!--
+<h1>Register Form</h1>
+<div *ngIf="err" class="alert alert-danger" role="alert">
+    {{err.error.message}}
+</div>
+<form (ngSubmit)="onSubmit(formLogin)" #formLogin="ngForm">
+    <label>Email</label>
+    <input class="form-control" type="email" ngModel name="email">
+    <label>Password</label>
+    <input class="form-control" type="password" ngModel name="password">
+    <br>
+    <button type="submit" class="btn btn-info">Submit</button>
+</form> -->

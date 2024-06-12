@@ -1,0 +1,46 @@
+<div class="container-fluid  mt-100">
+    <div class="row">
+      <form class="d-flex mb-4 col-4" role="search">
+        <input class="form-control" name="searchName" [(ngModel)]="searchName" (keyup)="searchByName()" placeholder="Tìm dự án">
+        <button class="btn btn-outline-success mx-2" type="submit">Search</button>
+      <!-- <button class="btn btn-outline-success mx-2" >Thêm Nhân Viên</button> -->
+    </form>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="active-member">
+              <div class="table-responsive">
+                <table class="table table-xs mb-0">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Họ Tên</th>
+                      <th>Ngày Sinh</th>
+                      <th>Giới Tính</th>
+                      <th>Khu Vực</th>
+                      <th>Thao Tác</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let nv of nvList">
+                      <td> {{nv.id}} </td>
+                      <td> {{nv.ho}} {{nv.ten}}</td>
+                      <td> {{nv.ngaysinh | date:'dd/MM/Y'}}</td>
+                      <td> {{nv.phai}}</td>
+                      <td> {{nv.khuvuc}}</td>
+                      <td>
+                          <a href="#" [routerLink]="['/suaNV', nv.id]" ><i class='bx bx-edit' style="font-size: 24px;color: #e41595 ;"></i></a> &nbsp;
+                        <a href="#" (click)="xoaNV(nv.id)"><i class='bx bx-x-circle' style="font-size: 24px;color: #e41595 ;"></i></a> 
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- <p class="mt-4">Có <b>{{nvList.length}}</b> nhân viên đang hiện</p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>

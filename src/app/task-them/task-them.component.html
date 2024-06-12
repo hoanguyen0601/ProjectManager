@@ -1,0 +1,44 @@
+<form #frmT="ngForm" class="mt-3" (ngSubmit)="taskThem(frmT.value)">
+            <h1 class="display-4 text-center" style="color: #e41595 ;">
+                Thêm Task</h1>
+            <p class="mb-3">Tên Task <input type="text" ngModel class="form-control" name="tenTask" [(ngModel)]="tenTask"
+                    required minlength="3" #loitenTask="ngModel">
+                <em *ngIf="loitenTask.invalid" class="text-danger">
+                    Nhập đầy đủ tên task.
+                </em>
+                <span *ngIf="loitenTask.errors?.['required']" class="text-danger">
+                    Vui lòng nhập tên task.
+                </span>
+            </p>
+            <p class="mb-3">Mô Tả Task <textarea name="moTa" id="" class="form-control"  [(ngModel)]="moTa"  required minlength="3" #loimoTa="ngModel"></textarea>
+                <em *ngIf="loimoTa.invalid" class="text-danger"> 
+                    Nhập đầy đủ tên mô tả.  
+                </em>
+                <span *ngIf="loimoTa.errors?.['required']" class="text-danger"> 
+                    Vui lòng nhập tên mô tả.
+                </span>
+            </p>
+
+
+            <p class="mb-3">Chọn Dự Án <select class="form-control" name="duAnID" ngModel>
+                <option value="">Dự Án</option>
+                <option value="{{da.tenDuAn}}" *ngFor="let da of daList">{{da.tenDuAn}}</option>
+            </select>
+            </p>
+
+            <p class="mb-3">Người Thực Hiện <select class="form-control" name="nhanvienID" ngModel>
+                <option value="">Nhân Viên</option>
+                <option value="{{nv.ho}} {{nv.ten}}" *ngFor="let nv of nvList">{{nv.ho}} {{nv.ten}}</option>
+            </select>
+            
+            </p>
+        <p class="mb-3">Độ ưu tiên <select class="form-control" ngModel name="priority">
+            <option value="Ưu Tiên">Ưu Tiên</option>
+            <option value="Bình Thường">Bình Thường</option>
+        </select></p>
+        <p class="mb-3">Trạng thái <select class="form-control" ngModel name="status">
+            <option value="Chưa Hoàn Thành">Chưa Hoàn Thành</option>
+            <option value="Hoàn Thành">Hoàn Thành</option>
+        </select></p>
+            <p><button type="submit" class="btn btn-primary p-2" style="background-color: #e41595 ; border: none;">Thêm Task</button></p>
+</form>

@@ -1,0 +1,41 @@
+<form #frmDA="ngForm" class="mt-3"  (ngSubmit)="themDA(frmDA.value)">
+    <h1 class="display-4 text-center" style="color: #e41595">
+     Thêm Dự Án</h1>
+    <p class="mb-3">Tên Dự Án <input type="text" ngModel class="form-control" name="tenDuAn" [(ngModel)]="tenDuAn" required minlength="3" #loitenDuAn="ngModel">
+        <em *ngIf="loitenDuAn.invalid" class="text-danger"> 
+            Nhập đầy đủ tên dự án.  
+         </em>
+         <span *ngIf="loitenDuAn.errors?.['required']" class="text-danger"> 
+              Vui lòng nhập tên dự án.
+         </span>
+    </p>
+
+
+
+    <p class="mb-3">Ngày Bắt Đầu <input type="date" ngModel class="form-control" name="ngayStart" [(ngModel)]="ngayStart" required minlength="8" #loingayStart="ngModel">
+        <em *ngIf="loingayStart.invalid" class="text-danger"> 
+            Vui lòng chọn ngày chính xác
+         </em>
+    </p>
+
+
+
+    <p class="mb-3">Chi Phí (VND) <input class="form-control" ngModel name="tien" [(ngModel)]="tien" required minlength="4" #loitien="ngModel">
+        <em *ngIf="loitien.invalid" class="text-danger"> 
+            Vui lòng nhập tiền dự án
+         </em>
+    
+    </p>
+    <p class="mb-3">Leader <select class="form-control" name="leader" ngModel>
+        <option value="0">Chọn đội trưởng</option>
+        <option value="{{nv.ho}} {{nv.ten}}" *ngFor="let nv of nvList">{{nv.ho}} {{nv.ten}}</option>
+    </select>
+    
+</p>
+    <p class="mb-3">Thành viên <select multiple ngModel size="5" name="thanhvien" class="form-control">
+        <option value="{{nv.ho}} {{nv.ten}}" *ngFor="let nv of nvList">{{nv.ho}} {{nv.ten}}</option>
+    </select></p>
+    <p><button type="submit" class="btn btn-primary p-2" style="background-color: #e41595; border: none;">Thêm dự án</button></p>
+</form>
+
+

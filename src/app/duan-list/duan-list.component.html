@@ -1,0 +1,42 @@
+<div class="container-fluid">
+
+    <div class="row">
+      <form class="d-flex mb-4 col-4" role="search">
+        <input class="form-control" name="searchName" [(ngModel)]="searchName" (keyup)="searchByName()" placeholder="Tìm dự án">
+        <button class="btn btn-outline-success mx-2" type="submit">Search</button>
+      </form>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="active-member">
+              <div class="table-responsive">
+                <table class="table table-xs mb-0">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Tên Dự Án</th>
+                      <th>Ngày</th>
+                      <th>Chi Phí</th>
+                      <th>Thao Tác</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let da of duanList">
+                      <td> {{da.id}} </td>
+                      <td><a href="#" class="link" [routerLink]="['/chitietDA', da.id]">{{da.tenDuAn}}</a>  </td>
+                      <td> {{da.ngayStart | date:'dd/MM/Y'}}</td>
+                      <td> {{da.tien | currency: 'VND'}}</td>
+                      <td><a href="#" [routerLink]="['/suaDA', da.id]" ><i class='bx bx-edit' style="font-size: 24px; color: #e41595"></i> </a> &nbsp;  
+                        <a href="#" (click)="xoaDA(da.id)"><i class='bx bx-x-circle' style="font-size: 24px;color: #e41595"></i></a> </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- <p class="mt-4">Có <b>{{duanList.length}}</b> dự án đang hiện</p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
